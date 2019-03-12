@@ -1,0 +1,6 @@
+#!/bin/bash
+
+make verify-commit > /dev/null 2> /dev/null < /dev/null &
+
+# Required on Mac - Without this sleep notifications (via terminal-notifier) don't appear.
+sleep 2
