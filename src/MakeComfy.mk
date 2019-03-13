@@ -59,10 +59,10 @@ verify-sandbox: ${VERIFY_WORKSPACE}-sync
 endif
 
 ${VERIFY_WORKSPACE}:
-	git clone --local . ${VERIFY_WORKSPACE}
+	git clone --local --recurse-submodules . ${VERIFY_WORKSPACE}
 
 ${VERIFY_WORKSPACE}-sync: ${VERIFY_WORKSPACE}
-	cd ${VERIFY_WORKSPACE} && git fetch && git reset --hard ${COMMIT}
+	cd ${VERIFY_WORKSPACE} && git fetch && git reset --hard ${COMMIT} && git submodule init && git submodule update
 
 .ONESHELL:
 # Same as verify, but it makes sure that we verify HEAD (or given commit)
