@@ -67,7 +67,7 @@ ${VERIFY_WORKSPACE}-sync: ${VERIFY_WORKSPACE}
 
 .ONESHELL:
 # Same as verify, but it makes sure that we verify HEAD (or given commit)
-verify-commit:
+comfy:
 	rm -f ${LOG} && touch ${LOG}
 	$(call notify,Running...,running)
 	pass=false
@@ -84,3 +84,6 @@ verify-commit:
 
 	make verify-sandbox | tee ${LOG}
 	pass=true
+
+verify-commit: comfy
+	@echo "DEPRECATION WARNING (MakeComfy): Please use comfy target instead of verify-commit"
