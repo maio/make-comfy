@@ -82,7 +82,7 @@ comfy:
 	}
 	trap finally EXIT
 
-	make verify-sandbox | tee ${LOG}
+	make verify-sandbox 2>&1 | tee ${LOG}
 	pass=true
 
 verify-commit: comfy
